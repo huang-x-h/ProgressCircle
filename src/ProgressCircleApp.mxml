@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:local="*"
+				creationComplete="application1_creationCompleteHandler(event)">
+	<mx:Style>
+		ProgressCircle {
+			trackColor: #DCDCDC;
+			circleColor: #F55851;
+			backgroundColor: #FFFFFF;
+		}
+	</mx:Style>
+	<mx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			protected function application1_creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				var timer:Timer = new Timer(1000, 100);
+				timer.addEventListener(TimerEvent.TIMER, function(e:TimerEvent):void {
+					progressCircle.progress += 1;
+				});
+				timer.start();
+			}
+			
+		]]>
+	</mx:Script>
+	<local:ProgressCircle id="progressCircle" radius="50" angle="90" progress="0" trackThickness="5">
+		
+	</local:ProgressCircle>
+</mx:Application>
